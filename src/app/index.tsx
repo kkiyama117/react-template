@@ -8,21 +8,22 @@
 
 import * as React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Switch, Route, BrowserRouter } from 'react-router-dom';
+import { Switch, Route, Router } from 'react-router-dom';
 
 import { GlobalStyle } from 'styles/global-styles';
 
-import { HomePage } from './containers/HomePage/Loadable';
-import { NotFoundPage } from './components/NotFoundPage/Loadable';
+import { HomePage } from './pages/HomePage/Loadable';
+import { NotFoundPage } from './pages/NotFoundPage/Loadable';
+import { history } from '../utils/history';
 
 export function App() {
   return (
-    <BrowserRouter>
-      <Helmet
-        titleTemplate="%s - React Boilerplate"
-        defaultTitle="React Boilerplate"
-      >
-        <meta name="description" content="A React Boilerplate application" />
+    <Router history={history}>
+      <Helmet titleTemplate="%s - kkiyama117 homepage" defaultTitle="kkiyama117 Homepage">
+        <meta
+          name="description"
+          content="Manager for every penguins to taking off"
+        />
       </Helmet>
 
       <Switch>
@@ -30,6 +31,6 @@ export function App() {
         <Route component={NotFoundPage} />
       </Switch>
       <GlobalStyle />
-    </BrowserRouter>
+    </Router>
   );
 }

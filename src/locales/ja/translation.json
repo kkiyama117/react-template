@@ -1,0 +1,16 @@
+{
+  "title": "ようこそ",
+  "pages": {
+    "login": {
+      "email": "メールアドレス",
+      "password": "パスワード",
+      "already_signed_in": "既に {{ name }} としてログインしています."
+    }
+  },
+  "theme": {
+    "choice": "テーマの選択"
+  },
+  "i18n": {
+    "selectLanguage": "言語の選択"
+  }
+}

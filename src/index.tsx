@@ -1,5 +1,5 @@
 /**
- * index.tsx
+ * index.ts
  *
  * This is the entry file for the application, only setup and boilerplate
  * code.
@@ -11,6 +11,7 @@ import 'react-app-polyfill/stable';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import FontFaceObserver from 'fontfaceobserver';
 import * as serviceWorker from 'serviceWorker';
 import 'sanitize.css/sanitize.css';
 
@@ -21,8 +22,25 @@ import { HelmetProvider } from 'react-helmet-async';
 
 import { configureAppStore } from 'store/configureStore';
 
+import { ThemeProvider } from './styles/theme/ThemeProvider';
+
 // Initialize languages
 import './locales/i18n';
+
+import { library } from '@fortawesome/fontawesome-svg-core';
+import icons from './styles/awesome-icons';
+
+// Add FontAwesome Icons
+library.add(...icons);
+
+// Observe loading of Inter (to remove 'Inter', remove the <link> tag in
+// the index.html file and this observer)
+const openSansObserver = new FontFaceObserver('Inter', {});
+
+// When Inter is loaded, add a font-family using Inter to the body
+openSansObserver.load().then(() => {
+  document.body.classList.add('fontLoaded');
+});
 
 const store = configureAppStore();
 const MOUNT_NODE = document.getElementById('root') as HTMLElement;
@@ -30,13 +48,16 @@ const MOUNT_NODE = document.getElementById('root') as HTMLElement;
 interface Props {
   Component: typeof App;
 }
+
 const ConnectedApp = ({ Component }: Props) => (
   <Provider store={store}>
-    <HelmetProvider>
-      <React.StrictMode>
-        <Component />
-      </React.StrictMode>
-    </HelmetProvider>
+    <ThemeProvider>
+      <HelmetProvider>
+        <React.StrictMode>
+          <Component />
+        </React.StrictMode>
+      </HelmetProvider>
+    </ThemeProvider>
   </Provider>
 );
 const render = (Component: typeof App) => {

@@ -1,3 +1,16 @@
 {
-  "title": "welcome"
+  "title": "welcome",
+  "pages": {
+    "login": {
+      "email": "Email",
+      "password": "password",
+      "already_signed_in": "Already Signed in as {{ name }}."
+    }
+  },
+  "theme": {
+    "choice": "Choose theme"
+  },
+  "i18n": {
+    "selectLanguage": "Choose language"
+  }
 }

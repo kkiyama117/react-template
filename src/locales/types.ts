@@ -1,3 +1,5 @@
-export type ConvertedToObjectType<T> = {
-  [P in keyof T]: T[P] extends string ? string : ConvertedToObjectType<T[P]>;
+export type ConvertedToFunctionsType<T> = {
+  [P in keyof T]: T[P] extends string
+    ? () => string
+    : ConvertedToFunctionsType<T[P]>;
 };

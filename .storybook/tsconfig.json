@@ -1,0 +1,8 @@
+{
+  "extends": "../tsconfig",
+  "compilerOptions": {
+    "isolatedModules": false,
+    "noEmit": false,
+    "include": ["src", "stories"]
+  }
+}
