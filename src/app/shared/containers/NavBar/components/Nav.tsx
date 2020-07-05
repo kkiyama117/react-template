@@ -31,7 +31,7 @@ function GithubItem() {
   return (
     <>
       <Item
-        href="https://github.com/kkiyama117/shearwater"
+        href="https://github.com/kkiyama117/portfolio"
         target="_blank"
         title="Github Page"
         rel="noopener noreferrer"
