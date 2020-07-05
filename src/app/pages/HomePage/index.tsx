@@ -9,7 +9,7 @@ export function HomePage() {
     <>
       <Helmet>
         <title>Home Page</title>
-        <meta name="description" content="Top page of shearwater" />
+        <meta name="description" content="Top page" />
       </Helmet>
       <NavBar />
       <PageWrapper>

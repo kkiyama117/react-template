@@ -19,7 +19,10 @@ import { history } from '../utils/history';
 export function App() {
   return (
     <Router history={history}>
-      <Helmet titleTemplate="%s - kkiyama117 homepage" defaultTitle="kkiyama117 Homepage">
+      <Helmet
+        titleTemplate="%s - kkiyama117 homepage"
+        defaultTitle="kkiyama117 Homepage"
+      >
         <meta
           name="description"
           content="Manager for every penguins to taking off"
